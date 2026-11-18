@@ -17,7 +17,7 @@ class Pgvector < Formula
   depends_on "postgresql@18" => [:build, :test]
 
   def postgresqls
-    deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
+    deps(/\Apostgresql@/).map(&:to_formula).sort_by(&:version)
   end
 
   def install
